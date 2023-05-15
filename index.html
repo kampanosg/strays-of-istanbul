@@ -49,27 +49,82 @@
             <p class="description">lol, who am i kidding. At least i will ask our overlords to dome some spell-checking for me and maybe make the content a little bit jucier</p>
         </header>
 
-        <section id="gallery"></section>
+        <section id="gallery">
+            <img src="./cats/cat1.JPEG">
+            <img src="./cats/cat3.JPEG">
+            <img src="./cats/cat5.JPEG">
+            <img class="lazy-load" data-src="./cats/cat7.JPEG">
+            <img class="lazy-load" data-src="./cats/cat8.JPEG">
+            <img class="lazy-load" data-src="./cats/cat9.JPEG">
+            <img class="lazy-load" data-src="./cats/cat10.JPEG">
+            <img class="lazy-load" data-src="./cats/cat11.JPEG">
+            <img class="lazy-load" data-src="./cats/cat14.JPEG">
+            <img class="lazy-load" data-src="./cats/cat15.JPEG">
+            <img class="lazy-load" data-src="./cats/cat16.JPEG">
+            <img class="lazy-load" data-src="./cats/cat17.JPEG">
+            <img class="lazy-load" data-src="./cats/cat18.JPEG">
+            <img class="lazy-load" data-src="./cats/cat19.JPEG">
+            <img class="lazy-load" data-src="./cats/cat20.JPEG">
+            <img class="lazy-load" data-src="./cats/cat21.JPEG">
+            <img class="lazy-load" data-src="./cats/cat22.JPEG">
+            <img class="lazy-load" data-src="./cats/cat23.JPEG">
+            <img class="lazy-load" data-src="./cats/cat24.JPEG">
+            <img class="lazy-load" data-src="./cats/cat25.JPEG">
+            <img class="lazy-load" data-src="./cats/cat26.JPEG">
+            <img class="lazy-load" data-src="./cats/cat27.JPEG">
+            <img class="lazy-load" data-src="./cats/cat30.JPEG">
+            <img class="lazy-load" data-src="./cats/cat31.JPEG">
+            <img class="lazy-load" data-src="./cats/cat32.JPEG">
+            <img class="lazy-load" data-src="./cats/cat33.JPEG">
+            <img class="lazy-load" data-src="./cats/cat34.JPEG">
+            <img class="lazy-load" data-src="./cats/cat35.JPEG">
+            <img class="lazy-load" data-src="./cats/cat36.JPEG">
+            <img class="lazy-load" data-src="./cats/cat37.JPEG">
+            <img class="lazy-load" data-src="./cats/cat38.JPEG">
+            <img class="lazy-load" data-src="./cats/cat39.JPEG">
+            <img class="lazy-load" data-src="./cats/cat40.JPEG">
+            <img class="lazy-load" data-src="./cats/cat41.JPEG">
+            <img class="lazy-load" data-src="./cats/cat42.JPEG">
+            <img class="lazy-load" data-src="./cats/cat43.JPEG">
+            <img class="lazy-load" data-src="./cats/cat44.JPEG">
+        </section>
 
         <section id="special">
             <h2>Special Guest</h2>
             <p>This is Yoshi! He's not a stray, but we met in a coffee shop in Beşiktaş and I wanted to feature him here.</p>
-            <img src="./cats/cat29.JPEG" />
+            <img class="lazy-load" data-src="./cats/cat29.JPEG" />
         </section>
 
         <footer></footer>
 
         <script type="text/javascript">
-            const container = document.getElementById("gallery");
-            const excluded = new Set([2, 4, 6, 12, 13, 28, 29]);
+            document.addEventListener("DOMContentLoaded", function() {
+                let lazyloadImages = document.querySelectorAll("img.lazy-load");
+                let lazyloadThrottleTimeout;
 
-            Array.from({length: 44}, (_, i) => i + 1)
-                 .filter(i => !excluded.has(i))
-                 .forEach(i => {
-                    const img = document.createElement("img")
-                    img.src = `./cats/cat${i}.JPEG`
-                    container.appendChild(img)
-                 })
+                function lazyload() {
+                if(lazyloadThrottleTimeout) {
+                    clearTimeout(lazyloadThrottleTimeout);
+                }
+                lazyloadThrottleTimeout = setTimeout(function() {
+                    let scrollTop = window.pageYOffset;
+                    lazyloadImages.forEach(function(img) {
+                    if(img.offsetTop < (window.innerHeight + scrollTop)) {
+                        img.src = img.dataset.src;
+                        img.classList.remove('lazy');
+                    }
+                    });
+                    if(lazyloadImages.length == 0) {
+                    document.removeEventListener("scroll", lazyload);
+                    window.removeEventListener("resize", lazyload);
+                    window.removeEventListener("orientationChange", lazyload);
+                    }
+                }, 20);
+                }
+                document.addEventListener("scroll", lazyload);
+                window.addEventListener("resize", lazyload);
+                window.addEventListener("orientationChange", lazyload);
+            });
         </script>
 
     </body>
