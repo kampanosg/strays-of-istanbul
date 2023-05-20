@@ -1,0 +1,6 @@
+cats_raw
+cats_bu
+cats/*.Identifier
+cats/*.JPEG
+cats/*.webp
+cats/*.jpg
