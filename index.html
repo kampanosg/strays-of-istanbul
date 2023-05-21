@@ -87,7 +87,7 @@
             <p>This is Yoshi! He's not a stray, but we met in a coffee shop in Beşiktaş and he asked me if he could be featured here. I happily obliged!</p>
             <picture>
                 <source type="image/webp" srcset="./cats/cat_29.webp" alt="Yoshi, an akita-mix dog laying in a coffee shop in Besiktas, Istanbul">
-                <img src="./cats/cat_29.jpg" alt="Yoshi, an akita-mix dog laying in a coffee shop in Besiktas, Istanbul" loading="lazy">
+                <img src="./cats/cat_29.jpg" loading="lazy">
             </picture>
         </section>
 
@@ -96,23 +96,71 @@
         </footer>
 
         <script type="text/javascript">
+
+	    const alts = {
+            1: 'Two black and white cats laying on the grass on a sunny day, near Hagia Sophia',
+            2: 'Two black and white cats laying on a ledge on a sunny day, near Hagia Sophia',
+            3: 'A white stray cat laying on a bench in Gülhane Park',
+            4: 'A white stray cat laying on a bench in Gülhane Park',
+            5: 'A white stray cat laying on a bench in Gülhane Park',
+            6: 'A stray cat sunbathing on the road near Topkapi',
+            7: 'A stray cat sunbathing on the road near Topkapi',
+            8: 'A stray hairy dog that his back legs are disabled is taking a walk in Beyoglu using assistive wheels',
+            9: 'A stray dog on a rainy day in Eyup Sultan Mezarligi',
+            10: 'A stray dog on a rainy day in Eyup Sultan Mezarligi',
+            11: 'A stray black and white cat on a rainy day in Eyup Sultan Mezarligi',
+            12: 'A stray black and white cat on a rainy day in Eyup Sultan Mezarligi',
+            13: 'A stray cat taking shelter from the rain in Eyup Sultan Mezarligi',
+            14: 'A stray cat taking shelter from the rain in Eyup Sultan Mezarligi',
+            15: 'Two stray cats taking shelter from the rain in Eyup Sultan Mezarligi',
+            16: 'Two stray cats taking shelter from the rain in Eyup Sultan Mezarligi',
+            17: 'A stray cat looking inside a black rubbish bag in Beyoglu',
+            18: 'A stray dog sitting in the corner of a pedestrian road in Beyoglu',
+            19: 'A white cat sitting on a rooftop in Beyoglu',
+            20: 'A yellow cat sitting on the pavement next to a gift shop',
+            21: 'A stray cat in Beyoglu',
+            22: 'A fluffly yellow cat sleeping in a coffee shop table in Beyoglu',
+            23: 'A stray dog sleeping on the side of a road in Beyoglu',
+            24: 'A stray cat in Beyoglu',
+            25: 'A stray cat walking on the road in Beyoglu',
+            26: 'A stray cat walking on the road in Beyoglu',
+            27: 'A stray cat eating food in front of a building in Beyoglu',
+            28: 'A stray cat eating food in front of a building in Beyoglu',
+            29: 'Yoshi, an akita-mix dog laying in a coffee shop in Besiktas',
+            30: 'A black cat sunbathing in the pavent somewhere in Besiktas',
+            31: 'A gray cat sunbathing in the pavent somewhere in Besiktas',
+            32: 'A black and gray cat sunbathing in the pavement somewhere in Besiktas',
+            33: 'A black and white stray cat eating food somewhere in Besiktas',
+            34: 'A brown dog sleeping in the grass in Besiktas',
+            35: 'A black and white cat taking a walk in Besiktas',
+            36: 'A fluffy cat sitting in front of a Vitamin Bar in Beyoglu',
+            37: 'A small stray grey cat eating from the floor somewhere in Beyoglu',
+            38: 'A black and white cat taking a walk somewhere in Beyoglu',
+            39: 'A stray brown and black cat taking a walk in Beyoglu',
+            40: 'A gray cat sitting on the pavement in Beyoglu',
+            41: 'A black and white cat taking a walk somewhere in Beyoglu',
+            42: 'A yellow cat eating dinner somewhere in Beyoglu',
+            43: 'A stray dog laying somewhere in Beyoglu',
+            44: 'A stray dog taking a nap in the entrance of shop in Beyoglu',
+	    }
+
             const container = document.getElementById("gallery");
             const excluded = new Set([2, 4, 6, 12, 13, 28, 29]);
 
             Array.from({length: 44}, (_, i) => i + 1)
                  .filter(i => !excluded.has(i))
                  .forEach(i => {
+		    const altText = alts[i]
                     const picture = document.createElement("picture");
                     const webp = document.createElement("source");
-                    webp.srcset = `./cats/cat_${i}.webp`
-		    webp.alt = ''
+                    webp.srcset = `./cats/cat_${i}.webp`;
                     webp.type = "image/webp";
                     picture.appendChild(webp);
 
                     const img = document.createElement("img")
-                    img.src = `./cats/cat_${i}.jpg`
-	 	    img.alt = ''
-		    img.loading = 'lazy'
+                    img.src = `./cats/cat_${i}.jpg`;
+	 	    img.alt = altText;
+		    img.loading = 'lazy';
 
                     picture.appendChild(img)
                     container.appendChild(picture)
