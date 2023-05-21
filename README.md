@@ -1,5 +1,5 @@
 # strays-of-istanbul 🐈🐕
-The source for the [strays-of-istanbul.xyz](https://strays-of-istanbul.xyz) website. Nothing too fancy, just a static website, with bare-minimum CSS and JS and that just shows a bunch of cat images. I call it simplicity... not that I have no idea how to make a website 🤫
+The source for the [strays-of-istanbul.xyz](https://strays-of-istanbul.xyz) website. Nothing too fancy, just a static website, with bare-minimum CSS and JS and that just shows a bunch of cat images. I call it simplicity... not that I have no idea how to make a modern website 🤫
 
 ## Hosting
 The domain is pointing to an S3 bucket that is serving the static HTML (`index.html`) file. The assets are also stored there for simplicity and ease of access and use.
