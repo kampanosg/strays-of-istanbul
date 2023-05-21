@@ -5,7 +5,7 @@ The source for the [strays-of-istanbul.xyz](https://strays-of-istanbul.xyz) webs
 The domain is pointing to an S3 bucket that is serving the static HTML (`index.html`) file. The assets are also stored there for simplicity and ease of access and use.
 
 ## Media
-I am not a photographer and I don't own any professional equipment so all images have been shot on my iPhone 12 Pro Max. However, I did convert the original images to WEBP to save some some bandwitdth but the website can fallback to JPGEs, if a user visits using their microwave.
+All of the photos have been shot on my iPhone 12 Pro Max. The only editing that has been done to them is to convert them to WEBP to save some some bandwitdth. However, the website will fallback to JPGs if a user visits using their microwave.
 
 <p align="center">
     <img src="./front.webp" />
