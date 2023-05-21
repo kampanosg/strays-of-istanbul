@@ -86,8 +86,8 @@
             <h2>Special Guest</h2>
             <p>This is Yoshi! He's not a stray, but we met in a coffee shop in Beşiktaş and he asked me if he could be featured here. I happily obliged!</p>
             <picture>
-                <source type="image/webp" srcset="./cats/cat_29.webp">
-                <img src="./cats/cat_29.jpg" alt="">
+                <source type="image/webp" srcset="./cats/cat_29.webp" alt="Yoshi, an akita-mix dog laying in a coffee shop in Besiktas, Istanbul">
+                <img src="./cats/cat_29.jpg" alt="Yoshi, an akita-mix dog laying in a coffee shop in Besiktas, Istanbul" loading="lazy">
             </picture>
         </section>
 
@@ -105,13 +105,16 @@
                     const picture = document.createElement("picture");
                     const webp = document.createElement("source");
                     webp.srcset = `./cats/cat_${i}.webp`
+		    webp.alt = ''
                     webp.type = "image/webp";
                     picture.appendChild(webp);
 
                     const img = document.createElement("img")
                     img.src = `./cats/cat_${i}.jpg`
-                    picture.appendChild(img)
+	 	    img.alt = ''
+		    img.loading = 'lazy'
 
+                    picture.appendChild(img)
                     container.appendChild(picture)
                  })
         </script>
